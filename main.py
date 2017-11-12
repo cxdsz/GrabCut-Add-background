@@ -275,7 +275,7 @@ class GCClient:
 			# print(" Now press the key 'n' a few times until no further change \n")
 			self.rect_or_mask = 0
 			self._mask[self._rect[1]+self._thickness:self._rect[1]+self._rect[3]-self._thickness, self._rect[0]+self._thickness:self._rect[0]+self._rect[2]-self._thickness] = self._GC_PR_FGD
-
+			## _mask 바꾸면 될듯함
 
 		# Notice : The x and y axis in CV2 are inversed to those in numpy.
 

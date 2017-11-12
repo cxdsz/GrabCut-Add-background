@@ -64,7 +64,7 @@ while True:
 
 	if k == 27:
 		break
-	elif k == ord('s'):
+	elif k == ord('s'): # 아스키 코드 변환
 		cv2.imwrite('%s_gc.jpg'%(imgname), output)
 		print("Result saved as image %s_gc.jpg"%(imgname))
 	elif k == ord('n'):
@@ -99,7 +99,30 @@ while True:
 
 
 	FGD = np.where((GC._mask == 1) + (GC._mask == 3), 255, 0).astype('uint8')
-	
-	output = cv2.bitwise_and(GC.img2, GC.img2, mask = FGD)  ## 이게 출력하는거다
+	output = cv2.bitwise_and(GC.img2, GC.img2, mask=FGD)  ## 이게 출력하는거다
 
+	# jaejin
+
+	# np.where (arr>0 , 2 , arr) 이면 arr의 원소가 0 보다 크면 2로 출력 작으면 arr원래 원소값 출력
+	bgimage = cv2.imread('test/boat.jpg')
+	rows , cols, channels = output.shape
+	roi = bgimage[0:rows, 0:cols]
+
+	img2gray = cv2.cvtColor(output, cv2.COLOR_BGR2GRAY)
+	ret, mask = cv2.threshold(img2gray, 10, 255, cv2. THRESH_BINARY)
+	mask_inv = cv2.bitwise_not(mask)
+
+	img1_fg = cv2.bitwise_and(output, output, mask=mask)
+	img2_bg = cv2.bitwise_and(roi, roi, mask=mask_inv)
+
+	#output = cv2.bitwise_and(GC.img2, GC.img2, mask = FGD)  ## 이게 출력하는거다
+	#dst = cv2.bitwise_and(GC.img2, GC.img2, mask=FGD)
+	dst = cv2.add(img1_fg, img2_bg)
+	bgimage[0:rows, 0:cols] = dst
+
+	#output = bgimage
+	cv2.imshow('res', bgimage)
+	#cv2.waitKey(0)
+
+	# ---
 cv2.destroyAllWindows()

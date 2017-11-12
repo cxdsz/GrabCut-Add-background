@@ -50,3 +50,10 @@ The background was erased
 ![grabcut1](./image/grabcut4.png)
 
 Add new background
+
+---
+
+### November 13
+
+![November13](./image/11_13.png)
+
