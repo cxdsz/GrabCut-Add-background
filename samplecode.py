@@ -16,7 +16,7 @@ roi = img2[0:rows, 0:cols]
 #mask_inv는 logo부분이 검은색(0), 바탕은 흰색(255)
 
 img2gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
-ret, mask = cv2.threshold(img2gray, 10, 255, cv2.THRESH_BINARY)
+ret, mask = cv2.threshold(img2gray, 10, 255, cv2.THRESH_BINARY)   # 임계값 조정 10 이상이면 255로 둬버림
 mask_inv = cv2.bitwise_not(mask)
 
 #bitwise_and 연산자는 둘다 0이 아닌 경우만 값을 통과 시킴.
