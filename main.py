@@ -175,6 +175,21 @@ class GCClient:
 		self._mask = np.zeros([self.rows, self.cols], dtype = np.uint8) # Init the mask
 		self._mask[:, :] = self._GC_BGD
 
+		flag = False
+
+		## jaejin add
+
+		self._rectangle = False
+		self._rect_over = True
+		self._rect = [0, 0, self.cols, self.rows]  # 전체선택.
+		self.rect_or_mask = 0
+		self._mask[self._rect[1] + self._thickness:self._rect[1] + self._rect[3] - self._thickness,
+		self._rect[0] + self._thickness:self._rect[0] + self._rect[2] - self._thickness] = self._GC_PR_FGD
+
+		# --- ---- - --- - - --- - - -- end  시작하자마자 선택됨
+
+	## _mask 바꾸면 될듯함
+
 
 	def calc_beta(self):
 		'''Calculate Beta -- The Exp Term of Smooth Parameter in Gibbs Energy'''
@@ -546,10 +561,12 @@ if __name__ == '__main__':
 		elif k == ord('r'):
 			GC.__init__(img, k = 5)
 
+
 		FGD = np.where((GC._mask == 1) + (GC._mask == 3), 255, 0).astype('uint8')
 		# if flag == True:
 		output = cv2.bitwise_and(GC.img2, GC.img2, mask = FGD)
 			# flag = False
+
 
 
 	cv2.destroyAllWindows()

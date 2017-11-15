@@ -14,6 +14,7 @@ import cv2
 osname = os.name
 
 nargin = len(sys.argv)   # 옵션의 개수
+kn = 1
 
 if nargin < 2:
 	raise ImportError('More args needed')   # raise 오류를 일부러 발생시키기 .
@@ -62,6 +63,7 @@ while True:
 	cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
 	k = 0xFF & cv2.waitKey(1)
 
+
 	if k == 27:
 		break
 	elif k == ord('s'): # 아스키 코드 변환
@@ -75,7 +77,7 @@ while True:
 			GC.rect_or_mask = 1
 		elif GC.rect_or_mask == 1:
 			GC.iter(1)
-	
+
 	elif k == ord('0'):
 		print('Mark background regions with left mouse button \n')
 		GC._DRAW_VAL = GC._DRAW_BG
@@ -125,5 +127,16 @@ while True:
 	cv2.imshow('res', bgimage)
 	#cv2.waitKey(0)
 
+	if kn == 1:
+		print(" 배경삭제 작업 시작 ")
+		kn = kn + 1
+		if GC.rect_or_mask == 0:
+			GC.run()
+			GC.rect_or_mask = 1
+		elif GC.rect_or_mask == 1:
+			GC.iter(1)
+		flag = True
+
 	# ---
+
 cv2.destroyAllWindows()
