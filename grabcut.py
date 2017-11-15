@@ -105,6 +105,7 @@ while True:
 
 	# np.where (arr>0 , 2 , arr) 이면 arr의 원소가 0 보다 크면 2로 출력 작으면 arr원래 원소값 출력
 	bgimage = cv2.imread('test/boat.jpg')
+
 	rows , cols, channels = output.shape
 	roi = bgimage[0:rows, 0:cols]
 
