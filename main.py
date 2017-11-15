@@ -138,7 +138,7 @@ class GCClient:
 
 		self.img = np.asarray(img, dtype = np.float32)
 		self.img2 = img
-		self.rows, self.cols = get_size(img)
+		self.rows, self.cols = get_size(img)  # 이미지 사이즈
 		self.gamma = 50
 		self.lam = 9*self.gamma
 		self.beta = 0
@@ -271,8 +271,14 @@ class GCClient:
 			self._rectangle = False
 			self._rect_over = True
 			cv2.rectangle(self.img,(self._ix,self._iy),(x,y),self._BLUE,2)
-			self._rect = [min(self._ix,x),min(self._iy,y),abs(self._ix-x),abs(self._iy-y)]
+			self._rect = [min(self._ix,x),min(self._iy,y),abs(self._ix-x),abs(self._iy-y)]   # x와 ix 작은값  y와 iy 작은값  ix-x 의 절대값 , iy-y의 절대값
+
+			# add jaejin
+			self._rect = [0, 0 , self.cols ,self.rows]  # 전체선택.
+
+			# ---
 			# print(" Now press the key 'n' a few times until no further change \n")
+
 			self.rect_or_mask = 0
 			self._mask[self._rect[1]+self._thickness:self._rect[1]+self._rect[3]-self._thickness, self._rect[0]+self._thickness:self._rect[0]+self._rect[2]-self._thickness] = self._GC_PR_FGD
 			## _mask 바꾸면 될듯함

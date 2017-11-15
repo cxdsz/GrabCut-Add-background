@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e00be542-85ee-48bd-9209-52a6df60db69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cat_gc.jpg" afterPath="$PROJECT_DIR$/cat_gc.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabcut.py" afterPath="$PROJECT_DIR$/grabcut.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/samplecode.py" afterPath="$PROJECT_DIR$/samplecode.py" />
     </list>
     <ignored path="Opensoftware.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +26,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="277" column="28" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
+            <state relative-caret-position="332">
+              <caret line="276" column="63" selection-start-line="276" selection-start-column="63" selection-end-line="276" selection-end-column="63" />
               <folding>
                 <element signature="e#62#72#0" expanded="true" />
               </folding>
@@ -65,8 +62,8 @@
       <file leaf-file-name="grabcut.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grabcut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="75" column="28" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="28" />
+            <state relative-caret-position="318">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
               <folding>
                 <element signature="e#87#97#0" expanded="true" />
               </folding>
@@ -564,8 +561,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grabcut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="75" column="28" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="28" />
+        <state relative-caret-position="318">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding>
             <element signature="e#87#97#0" expanded="true" />
           </folding>
@@ -574,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="277" column="28" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
+        <state relative-caret-position="332">
+          <caret line="276" column="63" selection-start-line="276" selection-start-column="63" selection-end-line="276" selection-end-column="63" />
           <folding>
             <element signature="e#62#72#0" expanded="true" />
           </folding>
