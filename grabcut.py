@@ -16,20 +16,27 @@ osname = os.name
 nargin = len(sys.argv)   # 옵션의 개수
 kn = 1
 
+
+test = 'test/'+sys.argv[1]+'.jpg'
+test2 = 'test/'+sys.argv[2]+'.jpg'
+
+print(test)
+print(test2)
+
 if nargin < 2:
 	raise ImportError('More args needed')   # raise 오류를 일부러 발생시키기 .
 elif nargin == 2:
-	imgroute = sys.argv[1]
+	imgroute = test
 	iteration_count = 1
 	component_count = 5
 elif nargin == 3:
-	imgroute = sys.argv[1]
-	iteration_count = sys.argv[2]
+	imgroute = test
+	#iteration_count = sys.argv[2]
 	component_count = 5
 else:
-	imgroute = sys.argv[1]
-	iteration_count = sys.argv[2]
-	component_count = sys.argv[3]
+	imgroute = test
+	#iteration_count = sys.argv[2]
+	#component_count = sys.argv[3]
 
 # if osname == 'nt':
 imgname = re.findall(r'\w+\.\w+', imgroute)[0]
@@ -106,7 +113,7 @@ while True:
 	# jaejin
 
 	# np.where (arr>0 , 2 , arr) 이면 arr의 원소가 0 보다 크면 2로 출력 작으면 arr원래 원소값 출력
-	bgimage = cv2.imread('test/boat.jpg')
+	bgimage = cv2.imread(test2)
 
 	rows , cols, channels = output.shape
 	roi = bgimage[0:rows, 0:cols]
@@ -125,10 +132,13 @@ while True:
 
 	#output = bgimage
 	cv2.imshow('res', bgimage)
+	cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
+
 	#cv2.waitKey(0)
 
 	if kn == 1:
 		print(" 배경삭제 작업 시작 ")
+
 		kn = kn + 1
 		if GC.rect_or_mask == 0:
 			GC.run()
@@ -137,6 +147,7 @@ while True:
 			GC.iter(1)
 		flag = True
 
+	cv2.imwrite('%s_gc.jpg' % (imgname), output)
 	# ---
 
 cv2.destroyAllWindows()
