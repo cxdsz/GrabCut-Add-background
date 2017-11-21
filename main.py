@@ -514,8 +514,9 @@ if __name__ == '__main__':
 	print('Press N to continue \n')
 
 	while(1):
-		cv2.imshow('output', output)
-		cv2.imshow('input', np.asarray(GC.img, dtype = np.uint8))
+		# server에서는 필요없어서
+		#cv2.imshow('output', output)
+		#cv2.imshow('input', np.asarray(GC.img, dtype = np.uint8))
 
 		k = 0xFF & cv2.waitKey(1)
 

@@ -66,8 +66,9 @@ print("Draw a rectangle around the object using right mouse button \n")
 print('Press N to continue \n')
 
 while True:
-	cv2.imshow('output', output)
-	cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
+	# server에서는 필요없어서
+	#cv2.imshow('output', output)
+	#cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
 	k = 0xFF & cv2.waitKey(1)
 
 
@@ -131,7 +132,8 @@ while True:
 	bgimage[0:rows, 0:cols] = dst
 
 	#output = bgimage
-	cv2.imshow('res', bgimage)
+	#cv2.imshow('res', bgimage) # 서버에서는 필요없으므로 
+
 	cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
 
 	#cv2.waitKey(0)
