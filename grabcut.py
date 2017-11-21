@@ -17,8 +17,8 @@ nargin = len(sys.argv)   # 옵션의 개수
 kn = 1
 
 
-test = 'test/'+sys.argv[1]+'.jpg'
-test2 = 'test/'+sys.argv[2]+'.jpg'
+test = 'test/'+sys.argv[1] # 서버에 맞는 경로 설정
+test2 = 'test/'+sys.argv[2]
 testcount = 0
 
 print(test)
