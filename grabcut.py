@@ -19,6 +19,7 @@ kn = 1
 
 test = 'test/'+sys.argv[1]+'.jpg'
 test2 = 'test/'+sys.argv[2]+'.jpg'
+testcount = 0
 
 print(test)
 print(test2)
@@ -66,12 +67,10 @@ print("Draw a rectangle around the object using right mouse button \n")
 print('Press N to continue \n')
 
 while True:
-	# server에서는 필요없어서
 	#cv2.imshow('output', output)
 	#cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
-
-
-
+	#k = 0xFF & cv2.waitKey(1)
+	test = 0
 
 
 	FGD = np.where((GC._mask == 1) + (GC._mask == 3), 255, 0).astype('uint8')
@@ -98,9 +97,8 @@ while True:
 	bgimage[0:rows, 0:cols] = dst
 
 	#output = bgimage
-	#cv2.imshow('res', bgimage) # 서버에서는 필요없으므로
-
-	#cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
+	#cv2.imshow('res', bgimage)
+	cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
 
 	#cv2.waitKey(0)
 
@@ -116,6 +114,10 @@ while True:
 		flag = True
 
 	cv2.imwrite('%s_gc.jpg' % (imgname), output)
-	# ---
 
-#cv2.destroyAllWindows()
+	if testcount == 10:
+		sys.exit(1)
+	testcount = testcount + 1
+
+	# ---
+cv2.destroyAllWindows()
