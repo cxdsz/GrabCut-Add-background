@@ -500,12 +500,12 @@ if __name__ == '__main__':
 
 	GC = GCClient(img, k = 5)
 
-	cv2.namedWindow('output')
-	cv2.namedWindow('input')
+	#cv2.namedWindow('output')
+	#cv2.namedWindow('input')
 
 
-	a = cv2.setMouseCallback('input',GC.init_mask)    # 마우스로 그리기
-	cv2.moveWindow('input',img.shape[0]+100, img.shape[1]+100)
+	#a = cv2.setMouseCallback('input',GC.init_mask)    # 마우스로 그리기
+	#cv2.moveWindow('input',img.shape[0]+100, img.shape[1]+100)
 
 	count = 0
 	flag = False

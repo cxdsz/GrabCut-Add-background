@@ -55,10 +55,10 @@ except AttributeError:
 output = np.zeros(img.shape, np.uint8)
 
 GC = GCClient(img, component_count)
-cv2.namedWindow('output')
-cv2.namedWindow('input')
-a = cv2.setMouseCallback('input', GC.init_mask)
-cv2.moveWindow('input', img.shape[0]+100, img.shape[1]+100)
+#cv2.namedWindow('output')
+#cv2.namedWindow('input')
+#a = cv2.setMouseCallback('input', GC.init_mask)
+#cv2.moveWindow('input', img.shape[0]+100, img.shape[1]+100)
 
 count = 0
 print("Instructions: \n")
@@ -132,7 +132,7 @@ while True:
 	bgimage[0:rows, 0:cols] = dst
 
 	#output = bgimage
-	#cv2.imshow('res', bgimage) # 서버에서는 필요없으므로 
+	#cv2.imshow('res', bgimage) # 서버에서는 필요없으므로
 
 	cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
 
@@ -152,4 +152,4 @@ while True:
 	cv2.imwrite('%s_gc.jpg' % (imgname), output)
 	# ---
 
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
