@@ -36,7 +36,7 @@ const upload = multer({
   }),
 });
 
-app.post('/upload', upload.fields([{name:'test_file'}, {name: 'test_file2'}]), (req,res) => {
+app.post('/upload', upload.fields([{name:'test_file'}, {name: 'test_file2'}]), function(req,res){
 	console.log(req.files);
 	res.render('imageview',{
 		image1: testname, image2: testname2
@@ -103,6 +103,7 @@ app.get('/test', function(req,res){
 })
 
 
-app.listen(3000, function(){
-	console.log('Conneted 3000 port!! ');
-});
+
+app.listen(process.env.PORT, function(){
+    console.log('Connected!!!!');
+})
