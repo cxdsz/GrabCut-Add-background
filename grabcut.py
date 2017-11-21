@@ -112,12 +112,9 @@ while True:
 		elif GC.rect_or_mask == 1:
 			GC.iter(1)
 		flag = True
-
 	cv2.imwrite('%s_gc.jpg' % (imgname), output)
-
-	if testcount == 10:
+	if testcount == 3:
 		sys.exit(1)
 	testcount = testcount + 1
-
 	# ---
 cv2.destroyAllWindows()
