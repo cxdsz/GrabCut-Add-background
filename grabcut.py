@@ -69,43 +69,9 @@ while True:
 	# server에서는 필요없어서
 	#cv2.imshow('output', output)
 	#cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
-	k = 0xFF & cv2.waitKey(1)
 
 
-	if k == 27:
-		break
-	elif k == ord('s'): # 아스키 코드 변환
-		cv2.imwrite('%s_gc.jpg'%(imgname), output)
-		print("Result saved as image %s_gc.jpg"%(imgname))
-	elif k == ord('n'):
-		print(""" For finer touchups, mark foreground and background after pressing keys 0-3
-			and again press 'n' \n""")
-		if GC.rect_or_mask == 0:
-			GC.run()
-			GC.rect_or_mask = 1
-		elif GC.rect_or_mask == 1:
-			GC.iter(1)
 
-	elif k == ord('0'):
-		print('Mark background regions with left mouse button \n')
-		GC._DRAW_VAL = GC._DRAW_BG
-		# output = GC.show(output)
-
-	elif k == ord('1'):
-		print('Mark foreground regions with left mouse button \n')
-		GC._DRAW_VAL = GC._DRAW_FG
-		# output = GC.show(output)
-
-	elif k == ord('2'):
-		print('Mark prob. background regions with left mouse button \n')
-		GC._DRAW_VAL = GC._DRAW_PR_BG
-
-	elif k == ord('3'):
-		print('Mark prob. foreground regions with left mouse button \n')
-		GC._DRAW_VAL = GC._DRAW_PR_FG
-
-	elif k == ord('r'):
-		GC.__init__(img, component_count)
 
 
 	FGD = np.where((GC._mask == 1) + (GC._mask == 3), 255, 0).astype('uint8')
@@ -134,7 +100,7 @@ while True:
 	#output = bgimage
 	#cv2.imshow('res', bgimage) # 서버에서는 필요없으므로
 
-	cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
+	#cv2.imwrite('%s_gc.jpg' % ('hyh'), bgimage)  # 사진 저장
 
 	#cv2.waitKey(0)
 

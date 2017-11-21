@@ -518,49 +518,7 @@ if __name__ == '__main__':
 		#cv2.imshow('output', output)
 		#cv2.imshow('input', np.asarray(GC.img, dtype = np.uint8))
 
-		k = 0xFF & cv2.waitKey(1)
 
-		if k == 27:
-			break
-		elif k == ord('n'):
-			print(""" For finer touchups, mark foreground and background after pressing keys 0-3
-			and again press 'n' \n""")
-			if GC.rect_or_mask == 0:
-				GC.run()
-				GC.rect_or_mask = 1
-			elif GC.rect_or_mask == 1:
-				GC.iter(1)
-			flag = True
-			# output = GC.show(output)
-
-		elif k == ord('0'):
-			print('Mark background regions with left mouse button \n')
-			GC._DRAW_VAL = GC._DRAW_BG
-			flag = True
-			# output = GC.show(output)
-
-		elif k == ord('1'):
-			print('Mark foreground regions with left mouse button \n')
-			GC._DRAW_VAL = GC._DRAW_FG
-			flag = True
-			# output = GC.show(output)
-
-		elif k == ord('2'):
-			print('Mark prob. background regions with left mouse button \n')
-			GC._DRAW_VAL = GC._DRAW_PR_BG
-			flag = True
-
-		elif k == ord('3'):
-			print('Mark prob. foreground regions with left mouse button \n')
-			GC._DRAW_VAL = GC._DRAW_PR_FG
-			flag = True
-
-		elif k == ord('s'):
-			cv2.imwrite('%s_gc.jpg'%('hyh'), output)
-			print("Result saved as image %s_gc.jpg"%('hyh'))
-
-		elif k == ord('r'):
-			GC.__init__(img, k = 5)
 
 
 		FGD = np.where((GC._mask == 1) + (GC._mask == 3), 255, 0).astype('uint8')
