@@ -17,8 +17,8 @@ nargin = len(sys.argv)   # 옵션의 개수
 kn = 1
 
 
-test = 'test/'+sys.argv[1] # 서버에 맞는 경로 설정
-test2 = 'test/'+sys.argv[2]
+test = '/home/ec2-user/local2/Web2/uploads/'+sys.argv[1] # 서버에 맞는 경로 설정
+test2 = '/home/ec2-user/local2/Web2/uploads/'+sys.argv[2]
 testcount = 0
 
 print(test)
@@ -66,7 +66,7 @@ print("Instructions: \n")
 print("Draw a rectangle around the object using right mouse button \n")
 print('Press N to continue \n')
 
-while True:
+for i in range(5):
 	#cv2.imshow('output', output)
 	#cv2.imshow('input', np.asarray(GC.img, dtype=np.uint8))
 	#k = 0xFF & cv2.waitKey(1)
@@ -113,8 +113,9 @@ while True:
 			GC.iter(1)
 		flag = True
 	cv2.imwrite('%s_gc.jpg' % (imgname), output)
-	if testcount == 3:
-		sys.exit(1)
-	testcount = testcount + 1
+	print('testtest')
+	#if testcount == 3:
+	#	sys.exit(0)
+	#testcount = testcount + 1
 	# ---
-cv2.destroyAllWindows()
+
