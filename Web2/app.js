@@ -5,7 +5,7 @@ var PythonShell = require('python-shell');
 const multer = require('multer');
 const path = require('path');
 var fs = require('fs');
-
+var http = require('http');
 var testname = '';
 var testname2 = '';
 
@@ -48,7 +48,7 @@ app.post('/upload', upload.fields([{name:'test_file'}, {name: 'test_file2'}]), f
 app.locals.pretty = true;
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
+app.set('port', process.env.PORT || 3000);
 app.use(express.bodyParser());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -79,15 +79,22 @@ app.get('/imgs3', function(req, res){
 
 ////////////////////////////////////////
 
+app.get('/result', function(req,res){
+	res.render('view');
+})
 
+app.post('/test', function(req,res){
+	res.redirect('/result');
+});
 
 app.get('/test', function(req,res){
+		res.redirect('/result');
 		PythonShell.run('grabcut.py',
 		    {
 		      mode: 'text',
 		      pythonPath: '',
 		      pythonOptions: ['-u'],
-		      scriptPath: '/Users/jaejin/dev/Opensoftware', // 서버에 맞게 경로 설정
+		      scriptPath: '/home/ec2-user/local2/', // 서버에 맞게 경로 설정
 		      args: [testname, testname2]
 
 		    }
@@ -95,15 +102,23 @@ app.get('/test', function(req,res){
 		    if (err) throw err;
 
 		    console.log('results: %j', results);
-		    res.render('view',{
-
-		    });
+		    res.render('view');
+			//res.redirect('/result');
+		    /*res.render('view',{
+			image1: testname, image2: testname2
+		    });*/
 
 		  });
 })
 
-
-
+/*
 app.listen(process.env.PORT, function(){
-    console.log('Connected!!!!');
-})
+	console.log('Conneted !! ');
+});*/
+
+
+http.createServer(app).listen(app.get('port'), function(){
+	console.log(' port ' + app.get('port'));
+});
+
+
